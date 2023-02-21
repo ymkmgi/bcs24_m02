@@ -129,7 +129,7 @@ console.log(pi);
  * in terms of the variables and constants, keyword var is hoisted and let/const does not allow hoisting
  */
 
-a = 5;
+a = 6;
 console.log(a)
 var a;
 
