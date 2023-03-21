@@ -49,3 +49,55 @@ console.log(sentence);
 
 // template literals (``) will allow us to to create string with the use of backticks. Template literals also allow us to easily concatenate string without the use of (+) plus sign.
 // This also allows us to embed or add variables and even expression in our string with the use of placeholders ${}.
+
+/**
+ * let numString1 = '5';
+let numString2 = '7';
+let num1 = 5.5;
+let num2 = .7;
+console.log(numString1 + num2);
+console.log(num1 + parseInt(numString2));
+
+console.log(5 / 0);
+console.log(Infinity + (-Infinity)); //node index.js
+
+let isAdmin = true;
+let isMarried = false;
+let isMVP = true;
+
+console.log("Is Jungkook an admin?" + isAdmin);
+console.log("Is Robles a cool MVP?" +''+isMVP);
+
+
+
+let dbzHeroes = ['Goku', 'Vegeta', 'Piccolo', 'Gohan'];
+console.log(dbzHeroes);
+
+let heroes = ['OPM', true, 500, 'Saitama', 300];
+console.log(heroes);
+
+let bands = ['alt-J', 'oneRepublic', 'sleepAlley'];
+
+let person = {
+    firstName: "Avin",
+    lastName: "Robles",
+    isDeveloper: "SlightlyTrue",
+    hasPortfolio: "few",
+    age: 20
+};
+console.log(bands);
+console.log(person);
+
+let person2 = {
+    name: "Peter",
+    age: 26,
+};
+console.log(person2.isAdmin);
+
+let person3 = {
+    name: "Peter",
+    age: 26,
+    isAdmin: null
+};
+console.log(person3.isAdmin);
+ */
