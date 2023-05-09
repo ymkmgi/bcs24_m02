@@ -23,4 +23,4 @@ oddEvenChecker("Hello")
 
 budgetChecker(45000);
 budgetChecker(6000);
-budgetChecker("6523");
+budgetChecker("6253");
