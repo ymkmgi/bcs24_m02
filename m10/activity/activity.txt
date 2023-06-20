@@ -1,0 +1,32 @@
+let users = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    isAdmin: false,
+    mobileNumber: '',
+};
+
+let orders = {
+    userID: '',
+    transactionDate: '',
+    status: '',
+    total: 0
+};
+
+let products = {
+    name: '',
+    description: '',
+    price: 0,
+    stocks: 0,
+    isActive: false,
+    SKU: ''
+};
+
+let orderProducts = {
+    orderID: '',
+    productID: '',
+    quantity: 0
+    price: 0
+    subTotal: 0
+};

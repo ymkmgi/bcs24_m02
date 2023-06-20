@@ -1,0 +1,8 @@
+{
+    "name": "Coffee Machine",
+    "description": "With coffee adapters that can brew a variety of coffees",
+    "price": 15000,
+    "stocks": 3,
+    "isActive": true,
+    "SKU": "CM3456"
+}

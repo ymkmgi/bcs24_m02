@@ -1,0 +1,109 @@
+MongoDB Aggregation
+    - used to generated manipulated data and perform operations to create filtered results that helps analyzing data
+    - compared to doing CRUD operation on our data from previous sessions, aggregation gives us access to manipulate, filter and compute for results providing us with information to make necessary decisions without having to create front-end application
+
+Using the aggregate method:
+    - $match
+        - is used to pass the documents that meet the specified condition(s) to the next pipeline/aggregation process
+
+        -- syntax:
+            {$match: { field }}
+
+            example:
+            db.fruits.aggregate([
+                {$match: { onSale: true }}
+            ]);
+
+            db.fruits.aggregate([
+                {$match: { supplier_id: 1 }}
+            ]);
+
+    - $group
+        - used to group elements together and field-value pairs using the data from the group elements
+
+        -- syntax:
+            {$group: { _id: value, fieldResult: "valueResult" }}
+
+            --- using '$match' and '$group' along with aggregation will find for products that are on sale and will group the total amount of stock for all suppliers found
+
+            -- syntax:
+                db.collectionName.aggregate([
+                    {$match: { field: value }}
+                    {$group: { _id: value, fieldResult: "valueResult" }}
+                ]);
+
+                --- '$' symbol will refer to a field that is available in the documents that are being aggregated on
+
+            example:
+                db.fruits.aggregate([
+                    {$match: { onSale: true }},
+                    {$group: { _id: "$supplier_id", total: { $sum: "$stock" } }}
+                ]);
+
+            --- '$sum' operator will total the values of all 'stocks' fields in the returned documents that are found in the '$match' criteria
+
+    - field projection with aggregation
+        - the '$project' can be used when aggregating data to include/exclude fields from the return results
+
+        --- syntax:
+            {$project: { field : 1/0 }}
+
+        example:
+            db.fruits.aggregate([
+                {$match: { onSale: true }},
+                {$group: { _id: "$supplier_id", total: { $sum: "$stock" } }},
+                {$project: { _id: 0 }}
+            ]);
+
+    - sorting aggregated results
+        - the '$sort' operator can be used to change the order of aggregated results
+        - providingthe value of -1 will sort the aggregatedresult in reverse order
+
+        --- syntax:
+            {$sort: { field: 1/-1 }}
+
+        example:
+            db.fruits.aggregate([
+                {$match: { onSale: true }},
+                {$group: { _id: "$supplier_id", total: { $sum: "$stock" } }},
+                {$sort: { total: -1 }}
+            ]);
+
+    - aggregating results based on array fields
+        - the '$unwind' deconstruct an array field from a collection/field with an array value to output a result for each elements
+
+        --- syntax:
+            {$unwind: field}
+
+        example:
+            db.fruits.aggregate([
+                {$unwind: "$origin"}
+            ]);
+            
+        // display fruit documents by their origin and the kinds of fruits that are supplied
+            db.fruits.aggregate([
+                {$unwind: "$origin"},
+                {$group: { _id: "$origin", kind: { $sum: 1 } }}
+            ]);
+
+[Schema] Guideline on Schema Design
+    - schema design/data modelling is an important feature when creating database
+        - MongoDB documents can be categorized into normalized and denomalized/embedded data
+
+        - normalized data
+            - refers to a structure where documents are referred to each other using their ids for related pieces of information
+
+        - de-normalized data/embedded data
+            - refers to a data structure where related pieces of information is added to a document as embedded object
+
+            --- both data structure are common practice but each of them have their pros and cons documents can be retrieved but in terms of querying results. It performs slower compare to embedded data due to having to retrieve multiple documents at the same time.
+
+            --- this approach is recommended for data structure where pieces of information are commonly operated on/change
+                --- de-normalizeddata/embedded data makes it easier to query documents and has a faster performance because only one query needs to be done in order to retrieve documents. However, if the data structure becaomes too complex, it makes it more difficult to maipulate and access information
+
+            --- this approach is recommendedfor data structures where pieces of information are commonly retreived and rarely operated on/change
+
+Relationships:
+    - one-to-one relationships
+    - one-to-few relationships
+    - one-to-many relationships

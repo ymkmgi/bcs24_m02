@@ -1,0 +1,151 @@
+Database
+    - are collection of data that are arranged and organized in a meaningful way
+
+Data vs Information
+
+let theBeatles = ['Richard', 'Gringo', 'Johnny', 'Paul']
+
+let childBirthYear = [1990, 1986, 2023]
+
+let shakespearQuote = 'To be or not to be, that is the question.'
+
+{
+    name: "Michael Jordan",
+    championships: [1990, 1999, 1996, 2001],
+    draftYear: 1984,
+    draftPosition: 3
+}
+
+Data is a raw input. It does not hold specific meaning
+
+Information is data arranged and holds specific meaning
+
+Database Management System
+    - a database management system allows us to manage/manipulate databases. We could perform basic CRUD operations on our databases
+
+What is CRUD?
+    - operations that allows us to Create, Read, Update, and Delete
+
+Relational databases
+    - allows us to store data or Informationand arrange it in a meaningfully table
+    - data is arranged and stores in tables and rows
+
+    id      name    price
+    1       PS5     27500
+    2       PS4     16000
+
+SQL
+    - Structured Query Language. It is typically used to programmatically manage or manipulate a relational database.
+    - data is structured and rigid
+
+ERD
+    - Entity Relationship Diagram
+
+Mini-Activiti
+
+In the m10 folder, create an activity folder.
+Go to diagrams.net and link your professional gmail account.
+Using the given set of entities and attributes, create an ERD that will show the relationships between the collections:
+
+Order Products
+    Order ID
+    Product ID
+    Quantity
+    Price
+    Sub Total
+
+Products
+    Name
+    Description
+    Price
+    Stocks
+    Is Active?
+    SKU
+
+Users
+    First Name
+    Last Name
+    Email
+    Password
+    Is Admin?
+    Mobile Number
+
+
+Orders
+    User Id
+    Transaction Date
+    Status
+    Total
+
+Screenshot the diagram and paste it in our discussion mini-activity
+Create a mock data for each of the following collection using JSON syntax.
+
+===============
+
+Data Model
+    - describes how data is organized or grouped in a database.
+
+Data Modeling Simulation
+    - login
+        - users
+            - admin
+            - users
+                - guest users
+                - users
+
+Create Data Model
+    - users
+        - admin
+        - customer
+            -- first name
+            -- last name
+            -- email
+            -- password
+            -- is Admin?
+            -- mobile number
+            -- enrollments
+    - courses
+        -- name
+        -- description
+        -- price
+        -- is Active?
+        -- enrollees
+Relaionships between data models
+    - one-to-one
+        - a person can only have one employee ID on a given company
+        - a student can only have one student ID on a given school
+    - one-to-many
+        - a perosn can have one or more email addresses
+    - many-to-many
+        - a book can be written by multiple authors and an author can write multiple books
+
+Translating data models into an ERD
+    ERD
+        - Entity-relationship-diagram
+            - a diagram tool used to describe the structure of the database design. It shows also what attributes(fields) an entity(collection) has.
+            - it also shows the relationships of attributes between entities.
+
+===============
+
+SQL
+    - Structured Query Language. 
+    - It is language used typically in relational DBMS to store, retrive and modify data.
+    - data is structured and rigid
+
+SELECT id, first_name, last_name FROM students WHERE section = 1;
+
+NoSQL
+    - Not only SQL
+
+db.students.find({section = 1}, {id: 1, firstName: 1, lastName: 1})
+
+    - was conceptualize when capturing complex, unstrutured data
+        - MongoDB
+
+MongoDB
+    - one of the open source databse and the leading NoSQL database, its language is highly expressive and generally friendly to tose familiar with JSON structure
+        - "Mongo" in MongoDB is a part of a word "humongous" which means huge or enormous
+
+        - tables ==> collections
+        - rows ==> documents
+        - columns ==> fields
